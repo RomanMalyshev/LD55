@@ -33,10 +33,18 @@ public class Map {
     container.DestroyChildren();
     for (var x = 0; x < png.width; x++) {
       for (var y = 0; y < png.height; y++) {
-        if (getPix(x, y).isAnyOf(Pix.Floor, Pix.Exit)) GameObject.Instantiate(R.floor, new Vector3(x + .5f, y + .5f, 0), Quaternion.identity, container);
-        if (getPix(x, y).isAnyOf(Pix.Wall)) GameObject.Instantiate(R.wall, new Vector3(x + .5f, y + .5f, 0), Quaternion.identity, container);
+        if (getPix(x, y).isAnyOf(Pix.Floor, Pix.Exit)) createSprite(R.spriteFloor, x + h, y + h, 0, false);
+        if (getPix(x, y).isAnyOf(Pix.Wall)) {
+          if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + h, y + 0, -h, true);
+          createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + h, y + h, -1, false);
+        }
       }
     }
+  }
+
+  private void createSprite(Sprite sprite, float x, float y, float z, bool front) {
+    var sr = GameObject.Instantiate(R.spriteRenderer, new Vector3(x, y, z), Quaternion.Euler(front ? -90 : 0, 0, 0), container);
+    sr.sprite = sprite;
   }
 
   private Pix getPix(int x, int y) {
