@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
 
   [SerializeField] private CharacterController CharacterController;
+  [SerializeField] private Transform HandLeft;
+  [SerializeField] private Transform RightHand;
 
   private Vector3 _playerVelocity;
   private float _playerSpeed = 2.0f;
@@ -19,13 +21,17 @@ public class PlayerController : MonoBehaviour {
   }
 
   [PublicAPI]
-  public void OnAttack() {
+  public void OnAttack(InputAction.CallbackContext context) {
     Debug.Log("Attack");
+    var isAttack = context.ReadValue<bool>();
+    HandLeft.rotation = Quaternion.Euler(isAttack ? 260 : 335,0,0);
   }
 
   [PublicAPI]
-  public void OnInteract() {
+  public void OnInteract(InputAction.CallbackContext context) {
     Debug.Log("Interact");
+    var isInteract = context.ReadValue<bool>();
+    HandLeft.rotation = Quaternion.Euler(isInteract ? 260 : 335,0,0);
   }
 
   private void Update() {

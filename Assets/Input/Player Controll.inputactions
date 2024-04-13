@@ -38,9 +38,9 @@
                     "name": "",
                     "id": "5ad6028e-267c-4f82-b6b0-d006c3e01dae",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "keyboard",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -60,9 +60,9 @@
                     "name": "",
                     "id": "cbe8b2e8-e409-4dc7-ba11-32c1c345a328",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "keyboard",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
