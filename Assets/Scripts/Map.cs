@@ -41,10 +41,14 @@ public class Map {
     for (var x = 0; x < png.width; x++) {
       for (var y = 0; y < png.height; y++) {
         var pix = getPix(x, y);
-        if (pix.isAnyOf(Pix.Floor, Pix.Exit, Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) createSprite(R.spriteFloor, x + .5f, y + .5f, 0, false);
+        if (pix.isAnyOf(Pix.Floor, Pix.Exit, Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) {
+          createSprite(R.spriteFloor, x + .5f, y + .5f, 0, false);
+          GameObject.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, +.5f), Quaternion.Euler(0, 0, 0), container);
+        }
         if (pix.isAnyOf(Pix.Wall)) {
           if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + .5f, y + 0, -.5f, true);
           createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + .5f, y + .5f, -1, false);
+          GameObject.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, -.5f), Quaternion.Euler(0, 0, 0), container);
         }
 
         var p = new[] {Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3}.IndexOf(pix);
