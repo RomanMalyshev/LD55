@@ -7,6 +7,10 @@ public class ResourcesHelper : MonoBehaviour {
     gameObject.SetActive(false);
   }
 
-  [SerializeField] public SpriteRenderer floor;
-  [SerializeField] public SpriteRenderer wall;
+  [SerializeField] public SpriteRenderer spriteRenderer;
+  [Space]
+  [SerializeField] public Sprite spriteFloor;
+  [SerializeField] public Sprite spriteWallF;
+  [SerializeField] public Sprite spriteWallTFull;
+  [SerializeField] public Sprite spriteWallTShort;
 }
