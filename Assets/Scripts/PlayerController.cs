@@ -4,12 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
 
-  [SerializeField] private CharacterController CharacterController;
+  [SerializeField] private Rigidbody Rigidbody;
   [SerializeField] private Transform HandLeft;
   [SerializeField] private Transform RightHand;
-
-  private Vector3 _playerVelocity;
-  private float _playerSpeed = 2.0f;
+  [SerializeField] private float _playerSpeed = 2.0f;
 
   private Vector2 _movementInput = Vector2.zero;
 
@@ -17,30 +15,31 @@ public class PlayerController : MonoBehaviour {
 
   [PublicAPI]
   public void OnMove(InputAction.CallbackContext context) {
+    // Debug.Log("Move");
     _movementInput = context.ReadValue<Vector2>();
   }
 
   [PublicAPI]
   public void OnAttack(InputAction.CallbackContext context) {
-    Debug.Log("Attack");
+    //Debug.Log("Attack");
     var isAttack = context.ReadValue<bool>();
-    HandLeft.rotation = Quaternion.Euler(isAttack ? 260 : 335,0,0);
+    HandLeft.rotation = Quaternion.Euler(isAttack ? 260 : 335, 0, 0);
   }
 
   [PublicAPI]
   public void OnInteract(InputAction.CallbackContext context) {
-    Debug.Log("Interact");
+    // Debug.Log("Interact");
     var isInteract = context.ReadValue<bool>();
-    HandLeft.rotation = Quaternion.Euler(isInteract ? 260 : 335,0,0);
+    RightHand.rotation = Quaternion.Euler(isInteract ? 260 : 335, 0, 0);
   }
 
   private void Update() {
+    var move = new Vector3(_movementInput.x, _movementInput.y, 0);
 
-    var move = new Vector3(_movementInput.x, 0, _movementInput.y);
-    CharacterController.Move(move * (Time.deltaTime * _playerSpeed));
-
+    Rigidbody.velocity = move * (Time.deltaTime * _playerSpeed);
+    
     if (move != Vector3.zero) {
-      gameObject.transform.forward = move;
+      gameObject.transform.right = move;
     }
   }
 
