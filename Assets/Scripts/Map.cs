@@ -11,6 +11,10 @@ public class Map {
     public static readonly Pix Floor = new(0x333333, 1);
     public static readonly Pix Wall = new(0xffffff, 1);
     public static readonly Pix Exit = new(0xff00ff, 1);
+    public static readonly Pix Player0 = new(0xff0000, 1);
+    public static readonly Pix Player1 = new(0x00ff00, 1);
+    public static readonly Pix Player2 = new(0x0000ff, 1);
+    public static readonly Pix Player3 = new(0xffff00, 1);
 
     public Vector4 value;
     public Pix(uint rgb, float a) : this(hexColor(rgb).r, hexColor(rgb).g, hexColor(rgb).b, a) { }
@@ -20,7 +24,6 @@ public class Map {
     }
   }
 
-
   public Map(Transform container, string name) {
     this.container = container;
     png = Resources.Load<Texture2D>($"Maps/{name}");
@@ -29,14 +32,28 @@ public class Map {
   private readonly Transform container;
   private readonly Texture2D png;
 
+  public (Vector2Int spawn, Vector2Int[] cells)[] players;
+
   public void generate() {
+    players = new (Vector2Int spawn, Vector2Int[] cells)[4];
+
     container.DestroyChildren();
     for (var x = 0; x < png.width; x++) {
       for (var y = 0; y < png.height; y++) {
-        if (getPix(x, y).isAnyOf(Pix.Floor, Pix.Exit)) createSprite(R.spriteFloor, x + h, y + h, 0, false);
-        if (getPix(x, y).isAnyOf(Pix.Wall)) {
-          if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + h, y + 0, -h, true);
-          createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + h, y + h, -1, false);
+        var pix = getPix(x, y);
+        if (pix.isAnyOf(Pix.Floor, Pix.Exit, Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) createSprite(R.spriteFloor, x + .5f, y + .5f, 0, false);
+        if (pix.isAnyOf(Pix.Wall)) {
+          if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + .5f, y + 0, -.5f, true);
+          createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + .5f, y + .5f, -1, false);
+        }
+
+        var p = new[] {Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3}.IndexOf(pix);
+        if (p != -1) {
+          var d = new Vector2Int(
+              pix == getPix(x - 1, y) ? -1 : pix == getPix(x + 1, y) ? +1 : 0,
+              pix == getPix(x, y - 1) ? -1 : pix == getPix(x, y + 1) ? +1 : 0);
+          if (d.x != 0 && d.y != 0)
+            players[p] = (new Vector2Int(x + d.x, y + d.y), new[] {new Vector2Int(x, y), new Vector2Int(x + d.x, y), new Vector2Int(x, y + d.y)});
         }
       }
     }
