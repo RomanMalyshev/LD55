@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851310961859599575, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1257550775496290346, guid: 395031ddc21653f41b33f995d7bd3291,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,10 +63,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3023903949629249093, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827892669819997322, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4136572182454206663, guid: 395031ddc21653f41b33f995d7bd3291,
         type: 3}
       propertyPath: m_Name
-      value: Mob Variant
+      value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559696137819361464, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212825178793219232, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105229834263769612, guid: 395031ddc21653f41b33f995d7bd3291,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
