@@ -2,7 +2,7 @@
     "name": "Player Controll",
     "maps": [
         {
-            "name": "Player",
+            "name": "Player_1",
             "id": "ab5e888c-2149-4155-ac9d-228694bc6dc1",
             "actions": [
                 {
@@ -60,6 +60,17 @@
                     "name": "",
                     "id": "41cd6673-1dbd-462b-98a8-7691a1938786",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4cee123-f4ec-443a-9585-2101a55ce749",
+                    "path": "<HID::Nintendo Wireless Gamepad>/button2",
                     "interactions": "",
                     "processors": "",
                     "groups": "gamepad",
@@ -135,8 +146,30 @@
                 },
                 {
                     "name": "",
+                    "id": "138f7331-429c-4f81-af64-2710e475c080",
+                    "path": "<HID::Nintendo Wireless Gamepad>/hat",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "gamepad",
+                    "action": "Movment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b6214be8-e46d-436b-96a3-1c395bc830db",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a144dd34-ede6-4c6f-9e42-c65df7c88d8f",
+                    "path": "<HID::Nintendo Wireless Gamepad>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "gamepad",

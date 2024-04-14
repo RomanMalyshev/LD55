@@ -8,8 +8,10 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private Transform HandLeft;
   [SerializeField] private Transform RightHand;
   [SerializeField] private float _playerSpeed = 2.0f;
+  [SerializeField] private float _rotateSpeed = 2.0f;
 
   private Vector2 _movementInput = Vector2.zero;
+
 
   private void Start() { }
 
@@ -21,24 +23,30 @@ public class PlayerController : MonoBehaviour {
 
   [PublicAPI]
   public void OnAttack(InputAction.CallbackContext context) {
-    Debug.Log("Attack");
+    Debug.Log(context.performed ? "Start Attack" : "End Attack");
     HandLeft.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
   }
 
   [PublicAPI]
   public void OnInteract(InputAction.CallbackContext context) {
-    Debug.Log("Interact");
+    Debug.Log(context.performed ? "Start Interact" : "End Interact");
     RightHand.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
   }
 
-  private void Update() {
+  private void FixedUpdate() {
     var move = new Vector3(_movementInput.x, _movementInput.y, 0);
 
-    Rigidbody.velocity = move * (Time.deltaTime * _playerSpeed);
-    
-    if (move != Vector3.zero) {
-      gameObject.transform.right = move;
+    if (move == Vector3.zero) {
+      return;
     }
+    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_movementInput.x, _movementInput.y, 0), Vector3.back);
+    targetRotation = Quaternion.RotateTowards(
+        transform.rotation,
+        targetRotation,
+        360 * Time.fixedDeltaTime * _rotateSpeed);
+    Rigidbody.MovePosition(Rigidbody.position + move * (_playerSpeed * Time.fixedDeltaTime));
+    
+    Rigidbody.MoveRotation(targetRotation);
   }
 
 }
