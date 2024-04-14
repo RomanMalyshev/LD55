@@ -9,5 +9,5 @@ public interface IInteractable {
 
 public enum InteractionType {
   Use,
-  Ghost,
+  Attack,
 }

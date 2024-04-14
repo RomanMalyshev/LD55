@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -15,6 +16,9 @@ public class PlayersManager : MonoBehaviour {
   private int _realPlayerInGame = -1;
   private readonly List<PlayerController> _players = new();
   private readonly Dictionary<InputActionReference, bool> _isSplitPlayerJoin = new();
+
+  public Action<PlayerController> OnPlayerCreated;
+
   private void Start() {
     if (NeedInit)
       Init(PlayersPosition);
@@ -68,6 +72,7 @@ public class PlayersManager : MonoBehaviour {
         PlayersPosition[playerInput.playerIndex].position.z);
     _players.Add(playerController);
     _realPlayerInGame++;
+    OnPlayerCreated?.Invoke(playerController);
 
     var connectWithKeyboard = false;
     foreach (var device in playerInput.devices) {

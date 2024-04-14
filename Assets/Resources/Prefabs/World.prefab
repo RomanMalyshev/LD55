@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TerrainBuilder: {fileID: 4286907887253313825}
   PlayersManager: {fileID: 1616094569158110080}
+  InteractionController: {fileID: 0}
   terrainContainer: {fileID: 982417443676771130}
   environmentContainer: {fileID: 2240177992596601907}
   itemContainer: {fileID: 5913302678675781798}
@@ -144,6 +145,7 @@ Transform:
   - {fileID: 7626377055388733650}
   - {fileID: 7617625322439709754}
   - {fileID: 4319886308026104117}
+  - {fileID: 1475756624304440203}
   m_Father: {fileID: 3922827008740950440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2141643471742772203
@@ -288,6 +290,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7575194179970374688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5122995645260371062}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7593301751607760141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475756624304440203}
+  m_Layer: 0
+  m_Name: WorldUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1475756624304440203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593301751607760141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
