@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TerrainBuilder: {fileID: 4286907887253313825}
   PlayersManager: {fileID: 1616094569158110080}
-  InteractionController: {fileID: 0}
+  InteractionController: {fileID: 2141643471742772203}
   terrainContainer: {fileID: 982417443676771130}
   environmentContainer: {fileID: 2240177992596601907}
   itemContainer: {fileID: 5913302678675781798}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7813047fd75c44b89d481657295d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractableItemInfoPrototype: {fileID: 0}
+  InteractionRadius: 0
 --- !u!1 &5172496728707199566
 GameObject:
   m_ObjectHideFlags: 0

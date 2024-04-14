@@ -8,6 +8,7 @@ public class InteractionController : MonoBehaviour {
   private readonly Dictionary<PlayerController, IInteractable> InteractableItem = new();
 
   [SerializeField] private GameObject InteractableItemInfoPrototype;
+  [SerializeField] private float InteractionRadius;
   public void Add(IInteractable targt) {
     _interactable.Add(targt);
   }
@@ -15,6 +16,7 @@ public class InteractionController : MonoBehaviour {
   public void registerPlayer(PlayerController controller) {
     _players.Add(controller);
     InteractableItemInfo.Add(controller, Instantiate(InteractableItemInfoPrototype));
+    InteractableItem.Add(controller, null);
   }
 
   public void Init(PlayersManager manager) {
@@ -22,13 +24,29 @@ public class InteractionController : MonoBehaviour {
   }
 
   public void Upd() {
-    foreach (var player in _players) {
-      float max = float.MaxValue;
-      foreach (var target in _interactable) {
-        if (!target.Interactabe) continue;
-        float dist = Vector3.Distance(target.Pos, player.transform.position);
-        if (dist < 1f && dist < max) max = dist;
+    foreach (var player in _players) SetInteractable(player);
+  }
+
+  private void SetInteractable(PlayerController player) {
+    float max = float.MaxValue;
+    IInteractable item = null;
+    foreach (var target in _interactable) {
+      if (!target.Interactabe) continue;
+      var dist = Vector3.Distance(target.Pos, player.transform.position);
+      if (dist < max) {
+        max = dist;
+        item = target;
       }
     }
+    if (max <= InteractionRadius) {
+      InteractableItem[player] = item;
+      InteractableItemInfo[player].transform.position = item.Pos;
+      InteractableItemInfo[player].SetActive(true);
+    } else {
+      InteractableItem[player] = null;
+      InteractableItemInfo[player].SetActive(false);
+    }
   }
+
+
 }
