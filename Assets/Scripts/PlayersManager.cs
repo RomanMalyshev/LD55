@@ -14,8 +14,9 @@ public class PlayersManager : MonoBehaviour {
   private int _realPlayerInGame = -1;
   private readonly List<PlayerController> _players = new();
   private readonly Dictionary<InputActionReference, bool> _isSplitPlayerJoin = new();
-  
-  private void Start() {
+
+  public void Init(Transform[] positions) {
+    PlayersPosition = positions;
     var actionAsset = KeyBoardAction[0].asset;
     actionAsset.actionMaps.ForEach(it => it.asset.Enable());
 
@@ -26,15 +27,15 @@ public class PlayersManager : MonoBehaviour {
       var index = i;
 
       KeyBoardAction[i].action.started += context => {
-        Debug.Log($" {context.action.name }  {_realPlayerInGame}  Create split player " +  _isSplitPlayerJoin[KeyBoardAction[index]] );
+        Debug.Log($" {context.action.name}  {_realPlayerInGame}  Create split player " + _isSplitPlayerJoin[KeyBoardAction[index]]);
 
         if (_realPlayerInGame >= PlayerInputManager.maxPlayerCount) return;
         if (_isSplitPlayerJoin[KeyBoardAction[index]]) return;
-        
+
         _isSplitPlayerJoin[KeyBoardAction[index]] = true;
-        
+
         var player = Instantiate(PlayerOriginal);
-        
+
         player.transform.position = new Vector3(
             PlayersPosition[_realPlayerInGame].position.x,
             PlayersPosition[_realPlayerInGame].position.y,
@@ -59,8 +60,8 @@ public class PlayersManager : MonoBehaviour {
 
     playerController.transform.position = new Vector3(
         PlayersPosition[playerInput.playerIndex].position.x,
-        PlayersPosition[playerInput.playerIndex].position.y,
-        playerController.transform.position.z);
+        playerController.transform.position.y,
+        PlayersPosition[playerInput.playerIndex].position.z);
     _players.Add(playerController);
     _realPlayerInGame++;
   }
@@ -73,7 +74,7 @@ public class PlayersManager : MonoBehaviour {
 
     _players.Clear();
     _isSplitPlayerJoin.Clear();
-    
+
     for (var i = 0; i < KeyBoardAction.Length; i++) {
       _isSplitPlayerJoin.Add(KeyBoardAction[i], false);
     }

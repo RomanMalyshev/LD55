@@ -34,22 +34,25 @@ public class TerrainBuilder : MonoBehaviour {
     if (cell.MapObject.isAnyOf(Player0, Player1, Player2, Player3)) CreatePlayer(cell);
   }
   private void CreatePlayer(Cell cell) {
-    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground);
+    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
 
     var p = new[] {Player0, Player1, Player2, Player3}.IndexOf(cell.MapObject);
     if (p == -1) return;
 
-    Spawn(cell.X, cell.Y, R.player, _worldManager.UnitsContainer);
+    var spawnPoint = new GameObject($"{p}_Spawn");
+    spawnPoint.transform.SetParent(_worldManager.PlayerContainer);
+    spawnPoint.transform.position = new Vector3(cell.X, 0, cell.Y);
+    _worldManager.positions.Add(spawnPoint.transform);
   }
 
   private void CreateFloor(Cell cell) {
-    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground);
+    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
   }
 
   private void CreateWall(Cell cell) {
-    var wall = Spawn(cell.X, cell.Y, R.TerrainPrefs.Walls.Get(cell.TileEnvironment));
-    var roof = Spawn(cell.X, cell.Y, R.TerrainPrefs.Roofs.Get(cell.TileEnvironment));
-    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground);
+    var wall = Spawn(cell.X, cell.Y, R.TerrainPrefs.Walls.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    var roof = Spawn(cell.X, cell.Y, R.TerrainPrefs.Roofs.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
 
     if (!wall.TryGetComponent<MeshRenderer>(out _)) {
       wall.name = $"W_{wall.name}_{cell.X}_{cell.Y}";
@@ -65,11 +68,6 @@ public class TerrainBuilder : MonoBehaviour {
     return go;
   }
 
-  private T Spawn<T>(int x, int y, T resource) where T : Object {
-    var go = Instantiate<T>(resource, new Vector3(x, 0, y), Quaternion.identity, _worldManager.UnitsContainer);
-    _spawned.Add(go);
-    return go;
-  }
 
   public void Dispose() {
     if (_spawned == null) return;

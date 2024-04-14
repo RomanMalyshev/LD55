@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour {
 
   public Action<PlayerController> OnPlayerAttack;
   public Action<PlayerController> OnPlayerInteraction;
-  
+
   private Vector2 _movementInput = Vector2.zero;
-  
+
   private void Start() { }
 
   [PublicAPI]
@@ -38,18 +38,18 @@ public class PlayerController : MonoBehaviour {
   }
 
   private void FixedUpdate() {
-    var move = new Vector3(_movementInput.x, _movementInput.y, 0);
+    var move = new Vector3(_movementInput.x, 0, _movementInput.y);
 
     if (move == Vector3.zero) {
       return;
     }
-    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_movementInput.x, _movementInput.y, 0), Vector3.up);
+    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_movementInput.x, 0, _movementInput.y), Vector3.up);
     targetRotation = Quaternion.RotateTowards(
         transform.rotation,
         targetRotation,
         360 * Time.fixedDeltaTime * _rotateSpeed);
     Rigidbody.MovePosition(Rigidbody.position + move * (_playerSpeed * Time.fixedDeltaTime));
-    
+
     Rigidbody.MoveRotation(targetRotation);
   }
 

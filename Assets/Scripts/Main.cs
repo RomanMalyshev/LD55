@@ -36,7 +36,7 @@ public class Main : MonoBehaviour {
   }
 
   private void Update() {
-    camera.transform.localPosition = new Vector3(25, 25, 0);
+    //camera.transform.localPosition = new Vector3(35, 35, 0);
     // camera.orthographicSize = 15f;
   }
 }
