@@ -17,4 +17,6 @@ public class ResourcesHelper : MonoBehaviour {
   [Space]
   [SerializeField] public GameObject player;
   [SerializeField] public GameObject skeleton;
+
+  [SerializeField] public TerrainPrefs TerrainPrefs;
 }

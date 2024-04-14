@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e180bacb05b79e5448249d6b189c9dc9, type: 3}
+  m_Name: WallRoof
+  m_EditorClassIdentifier: 
+  Elements:
+  - Elements: 261
+    Prefab: {fileID: 246577634779226611, guid: 20cd03f1afae1524497072d0757082bc, type: 3}
+  - Elements: 263
+    Prefab: {fileID: 6194466744695274822, guid: 5b9980faa5e865c48a71ea8d97033dd5,
+      type: 3}
+  - Elements: 321
+    Prefab: {fileID: 2440020451787340879, guid: 0d20c4a181547984cb8bf8aa8c65cd56,
+      type: 3}
+  - Elements: 325
+    Prefab: {fileID: 4575891533983530400, guid: 467046a16ed2ab14dadcb66f1fbf16cc,
+      type: 3}
+  - Elements: 449
+    Prefab: {fileID: 640964969104008990, guid: ba0306237a271204f9bfe5b0256b8abb, type: 3}
+  - Elements: 324
+    Prefab: {fileID: 5425256484280207928, guid: 4cfec66afa48ebe449a4bee86d54d9ee,
+      type: 3}
+  - Elements: 256
+    Prefab: {fileID: 1694782214797144779, guid: 2bcf7418427c75645a2009b3a8555da2,
+      type: 3}
+  - Elements: 257
+    Prefab: {fileID: 4981424909143336327, guid: d6dfc6e8ac2e59b44a7bb480497dc4d9,
+      type: 3}
+  - Elements: 320
+    Prefab: {fileID: 4693378598363622094, guid: 5ee12e048158d824fa7effa7ec042a3d,
+      type: 3}
+  - Elements: 260
+    Prefab: {fileID: 3234335717573995800, guid: e9d9db8e9a618c9449dedec1817f6939,
+      type: 3}
+  - Elements: 455
+    Prefab: {fileID: 5921720892212687082, guid: a5dc08e26efcf104bbdc81279484abff,
+      type: 3}
+  - Elements: 511
+    Prefab: {fileID: 2614116216509353534, guid: c323e0142c130d64fb9b9d35a76094aa,
+      type: 3}
+  - Elements: 272
+    Prefab: {fileID: 4126184467575895956, guid: 91553365043e9cf4d87d50f3cf0b668c,
+      type: 3}
+  - Elements: 273
+    Prefab: {fileID: 7367159402309793805, guid: 48f85ccb41cd49e4fa144a66bb612146,
+      type: 3}
+  - Elements: 337
+    Prefab: {fileID: 844983491388632040, guid: cbb56df935e15f547a96c8fcf1c4b7a2, type: 3}
+  - Elements: 277
+    Prefab: {fileID: 1617766198795538798, guid: b13123a94bd86c249999aebdbece3178,
+      type: 3}
+  - Elements: 287
+    Prefab: {fileID: 4011733822370724091, guid: f9d39f35c387bc44ea8d4ee3aff6b2e1,
+      type: 3}
+  - Elements: 276
+    Prefab: {fileID: 2871623343121718963, guid: 3f2368badbe781d4697f006656a4cb09,
+      type: 3}
+  - Elements: 284
+    Prefab: {fileID: 740555909402700956, guid: d13e38e6abc70814cb4fedc0c099a96e, type: 3}
+  - Elements: 336
+    Prefab: {fileID: 523877362815268534, guid: a7a06e7f6a1a9424e86b8e474b5cdcbd, type: 3}
+  - Elements: 341
+    Prefab: {fileID: 18468591981339707, guid: 19fece0da73c6fb4cbe0f6c5dc0d6d32, type: 3}
+  - Elements: 351
+    Prefab: {fileID: 3948875508177449614, guid: e5b6ea5d34e688e4f81feb14f3951a0f,
+      type: 3}
+  - Elements: 477
+    Prefab: {fileID: 327840809795815654, guid: 0ba79a35bac8bf346a02f33b66659e88, type: 3}
+  - Elements: 375
+    Prefab: {fileID: 8670796634298532095, guid: 12f9a499dc9070b4cb4ef16df4a7c774,
+      type: 3}
+  - Elements: 381
+    Prefab: {fileID: 7194426861936050459, guid: d9fd1a478c191ef49ba2f947c9d6374b,
+      type: 3}
+  - Elements: 501
+    Prefab: {fileID: 3467250354559399963, guid: b09afa6fb1814604085e4b39a9c5dc90,
+      type: 3}
+  - Elements: 497
+    Prefab: {fileID: 43646779387621570, guid: 278fd43655fe2db4a9f2ca4aaae3255c, type: 3}
+  - Elements: 340
+    Prefab: {fileID: 5629267984778612079, guid: cd4620946da382a4baec40c1d3983356,
+      type: 3}
+  - Elements: 380
+    Prefab: {fileID: 1635554587354708053, guid: 59353f677cf15914493c46f3f164ac66,
+      type: 3}
+  - Elements: 368
+    Prefab: {fileID: 2112188456731182421, guid: 4945f1e0770cddd408558822e0db6fc4,
+      type: 3}
+  - Elements: 256
+    Prefab: {fileID: 1694782214797144779, guid: 2bcf7418427c75645a2009b3a8555da2,
+      type: 3}

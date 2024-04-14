@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Ky;
+using Object = UnityEngine.Object;
 
 public class Map {
   private class Pix {
@@ -40,31 +39,44 @@ public class Map {
     container.DestroyChildren();
     for (var x = 0; x < png.width; x++) {
       for (var y = 0; y < png.height; y++) {
-        var pix = getPix(x, y);
-        if (pix.isAnyOf(Pix.Floor, Pix.Exit, Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) {
-          createSprite(R.spriteFloor, x + .5f, y + .5f, 0, false);
-          GameObject.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, +.5f), Quaternion.Euler(0, 0, 0), container);
-        }
-        if (pix.isAnyOf(Pix.Wall)) {
-          if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + .5f, y + 0, -.5f, true);
-          createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + .5f, y + .5f, -1, false);
-          GameObject.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, -.5f), Quaternion.Euler(0, 0, 0), container);
-        }
-
-        var p = new[] {Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3}.IndexOf(pix);
-        if (p != -1) {
-          var d = new Vector2Int(
-              pix == getPix(x - 1, y) ? -1 : pix == getPix(x + 1, y) ? +1 : 0,
-              pix == getPix(x, y - 1) ? -1 : pix == getPix(x, y + 1) ? +1 : 0);
-          if (d.x != 0 && d.y != 0)
-            players[p] = (new Vector2Int(x + d.x, y + d.y), new[] {new Vector2Int(x, y), new Vector2Int(x + d.x, y), new Vector2Int(x, y + d.y)});
-        }
+        Spawn(x, y);
       }
     }
   }
 
+  private void Spawn(int x, int y) {
+    var pix = getPix(x, y);
+
+    if (pix.isAnyOf(Pix.Floor, Pix.Exit, Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) CreateFloor(x, y);
+    if (pix.isAnyOf(Pix.Wall)) CreateWall(x, y);
+    if (pix.isAnyOf(Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3)) CreatePlayer(pix, x, y);
+  }
+
+  private void CreateFloor(int x, int y) {
+    createSprite(R.spriteFloor, x + .5f, y + .5f, 0, false);
+    Object.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, +.5f), Quaternion.Euler(0, 0, 0), container);
+  }
+
+  private void CreatePlayer(Pix pix, int x, int y) {
+    var p = new[] {Pix.Player0, Pix.Player1, Pix.Player2, Pix.Player3}.IndexOf(pix);
+
+    if (p == -1) return;
+
+    var d = new Vector2Int(
+        pix == getPix(x - 1, y) ? -1 : pix == getPix(x + 1, y) ? +1 : 0,
+        pix == getPix(x, y - 1) ? -1 : pix == getPix(x, y + 1) ? +1 : 0);
+    if (d.x != 0 && d.y != 0)
+      players[p] = (new Vector2Int(x + d.x, y + d.y), new[] {new Vector2Int(x, y), new Vector2Int(x + d.x, y), new Vector2Int(x, y + d.y)});
+  }
+
+  private void CreateWall(int x, int y) {
+    if (getPix(x, y - 1).isNoneOf(Pix.Wall)) createSprite(R.spriteWallF, x + .5f, y + 0, -.5f, true);
+    createSprite(getPix(x, y + 1).isAnyOf(Pix.Wall) ? R.spriteWallTFull : R.spriteWallTShort, x + .5f, y + .5f, -3, false);
+    Object.Instantiate(R.cubeCollider, new Vector3(x + .5f, y + .5f, -.5f), Quaternion.Euler(0, 0, 0), container);
+  }
+
   private void createSprite(Sprite sprite, float x, float y, float z, bool front) {
-    var sr = GameObject.Instantiate(R.spriteRenderer, new Vector3(x, y, z), Quaternion.Euler(front ? -90 : 0, 0, 0), container);
+    var sr = Object.Instantiate(R.spriteRenderer, new Vector3(x, y, z), Quaternion.Euler(front ? -90 : 0, 0, 0), container);
     sr.sprite = sprite;
   }
 

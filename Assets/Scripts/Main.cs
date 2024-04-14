@@ -10,13 +10,16 @@ public class Main : MonoBehaviour {
   [SerializeField] private Transform mapContainer;
   [SerializeField] private Transform unitContainer;
   [SerializeField] private Camera camera;
+  [SerializeField] private WorldManager worldManager;
 
   private Map? map = null;
 
   private GameObject[] playerUnits = new GameObject[4];
 
   private void Start() {
-    initMap("azaza");
+
+    worldManager.Init();
+    //initMap("azaza");
   }
 
   private void initMap(string mapName) {
