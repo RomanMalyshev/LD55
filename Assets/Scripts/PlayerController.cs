@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
     if (move == Vector3.zero) {
       return;
     }
-    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_movementInput.x, _movementInput.y, 0), Vector3.back);
+    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(_movementInput.x, _movementInput.y, 0), Vector3.up);
     targetRotation = Quaternion.RotateTowards(
         transform.rotation,
         targetRotation,
