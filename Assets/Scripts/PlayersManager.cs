@@ -8,13 +8,17 @@ public class PlayersManager : MonoBehaviour {
   [SerializeField] private PlayerInputManager PlayerInputManager;
   [SerializeField] private Transform[] PlayersPosition;
   [SerializeField] private PlayerController PlayerOriginal;
-
+  [SerializeField] private PlayerConnectionView PlayerConnectionView;
   [SerializeField] private InputActionReference[] KeyBoardAction;
+  [SerializeField] private bool NeedInit;
 
   private int _realPlayerInGame = -1;
   private readonly List<PlayerController> _players = new();
   private readonly Dictionary<InputActionReference, bool> _isSplitPlayerJoin = new();
-
+  private void Start() {
+    if (NeedInit)
+      Init(PlayersPosition);
+  }
   public void Init(Transform[] positions) {
     PlayersPosition = positions;
     var actionAsset = KeyBoardAction[0].asset;
@@ -64,6 +68,13 @@ public class PlayersManager : MonoBehaviour {
         PlayersPosition[playerInput.playerIndex].position.z);
     _players.Add(playerController);
     _realPlayerInGame++;
+
+    var connectWithKeyboard = false;
+    foreach (var device in playerInput.devices) {
+      if (device.device == Keyboard.current)
+        connectWithKeyboard = true;
+    }
+    PlayerConnectionView.PlayerConnected(playerInput.playerIndex, connectWithKeyboard);
   }
 
   public void Reset() {
@@ -83,5 +94,6 @@ public class PlayersManager : MonoBehaviour {
   [PublicAPI]
   public void OnPlayerLeft(PlayerInput playerInput) {
     Debug.Log("Player Left");
+    PlayerConnectionView.PlayerDisconnected(playerInput.playerIndex);
   }
 }
