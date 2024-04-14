@@ -33,7 +33,6 @@ public class MapProvider : IEnumerable<Cell> {
     TileEnvironment env = TileEnvironment.Self;
     for (int side = 0; side < 8; side += 2) {
       env |= setCellEnvironment(tile, pos, side);
-      if (pos.x == 33 && pos.y == 32) Debug.Log($"{side}_{env}");
     }
     return new Cell(pos, tile, env);
   }
