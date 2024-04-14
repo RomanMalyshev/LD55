@@ -9,6 +9,8 @@ public class InteractionController : MonoBehaviour {
 
   [SerializeField] private GameObject InteractableItemInfoPrototype;
   [SerializeField] private float InteractionRadius;
+
+  [SerializeField] private Transform WorldUIContainer;
   public void Add(IInteractable targt) {
     _interactable.Add(targt);
   }

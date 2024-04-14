@@ -83,12 +83,14 @@ MonoBehaviour:
   TerrainBuilder: {fileID: 4286907887253313825}
   PlayersManager: {fileID: 1616094569158110080}
   InteractionController: {fileID: 2141643471742772203}
+  FollowCamera: {fileID: 0}
   terrainContainer: {fileID: 982417443676771130}
   environmentContainer: {fileID: 2240177992596601907}
   itemContainer: {fileID: 5913302678675781798}
   playerContainer: {fileID: 4319886308026104117}
   enemyContainer: {fileID: 7626377055388733650}
   buildingsContainer: {fileID: 7617625322439709754}
+  worldUIContainer: {fileID: 1475756624304440203}
   positions: []
 --- !u!65 &8443931817398066412
 BoxCollider:
@@ -160,8 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7813047fd75c44b89d481657295d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractableItemInfoPrototype: {fileID: 0}
-  InteractionRadius: 0
+  InteractableItemInfoPrototype: {fileID: 6262277337798168537, guid: 62020bb89dd6dff48baf262a7e1cdbf9,
+    type: 3}
+  InteractionRadius: 0.75
+  WorldUIContainer: {fileID: 1475756624304440203}
 --- !u!1 &5172496728707199566
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,37 +414,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2275449337666562248, guid: e19cd58e6c8a9134ca4c76004de40647,
-        type: 3}
-      propertyPath: 'PlayersPosition.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275449337666562248, guid: e19cd58e6c8a9134ca4c76004de40647,
-        type: 3}
-      propertyPath: 'PlayersPosition.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275449337666562248, guid: e19cd58e6c8a9134ca4c76004de40647,
-        type: 3}
-      propertyPath: 'PlayersPosition.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275449337666562248, guid: e19cd58e6c8a9134ca4c76004de40647,
-        type: 3}
-      propertyPath: 'PlayersPosition.Array.data[3]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3204301818219063045, guid: e19cd58e6c8a9134ca4c76004de40647,
         type: 3}
       propertyPath: m_Name
       value: Players Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 354796408365504603, guid: e19cd58e6c8a9134ca4c76004de40647, type: 3}
-    - {fileID: 8071866726121085050, guid: e19cd58e6c8a9134ca4c76004de40647, type: 3}
-    - {fileID: 138277777883554158, guid: e19cd58e6c8a9134ca4c76004de40647, type: 3}
-    - {fileID: 5498798679792730865, guid: e19cd58e6c8a9134ca4c76004de40647, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19cd58e6c8a9134ca4c76004de40647, type: 3}

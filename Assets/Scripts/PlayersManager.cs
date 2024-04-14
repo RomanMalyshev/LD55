@@ -79,7 +79,7 @@ public class PlayersManager : MonoBehaviour {
       if (device.device == Keyboard.current)
         connectWithKeyboard = true;
     }
-    PlayerConnectionView.PlayerConnected(playerInput.playerIndex, connectWithKeyboard);
+    if (PlayerConnectionView is not null) PlayerConnectionView.PlayerConnected(playerInput.playerIndex, connectWithKeyboard);
   }
 
   public void Reset() {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class WorldManager : MonoBehaviour {
   [SerializeField] private TerrainBuilder TerrainBuilder;
   [SerializeField] private PlayersManager PlayersManager;
   [SerializeField] private InteractionController InteractionController;
+  [SerializeField] private FollowTarget FollowCamera;
 
   [SerializeField] private Transform terrainContainer;
   [SerializeField] private Transform environmentContainer;
@@ -13,6 +15,7 @@ public class WorldManager : MonoBehaviour {
   [SerializeField] private Transform playerContainer;
   [SerializeField] private Transform enemyContainer;
   [SerializeField] private Transform buildingsContainer;
+  [SerializeField] private Transform worldUIContainer;
 
 
   public List<Transform> positions;
@@ -26,10 +29,15 @@ public class WorldManager : MonoBehaviour {
   public Transform BuildingsContainer => buildingsContainer;
   public Transform ItemContainer => itemContainer;
 
+
   public void Init() {
     TerrainBuilder.Init(this);
     PlayersManager.Init(positions.ToArray());
     InteractionController.Init(PlayersManager);
+    PlayersManager.OnPlayerCreated += Follow;
+  }
+  private void Follow(PlayerController obj) {
+    FollowCamera.SetTarget(obj.transform);
   }
 
 
