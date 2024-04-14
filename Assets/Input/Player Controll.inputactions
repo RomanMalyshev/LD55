@@ -16,42 +16,31 @@
                 },
                 {
                     "name": "Attack",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "bfd0e896-f19d-4915-b823-236d9cdf2bd2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "a743899c-9134-4b51-9f97-5cd9c48b3cfd",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "5ad6028e-267c-4f82-b6b0-d006c3e01dae",
-                    "path": "<Mouse>/leftButton",
+                    "id": "453f323d-5334-423e-a730-d81c425f2329",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b6214be8-e46d-436b-96a3-1c395bc830db",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "controller",
+                    "groups": "keyboard",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -59,10 +48,10 @@
                 {
                     "name": "",
                     "id": "cbe8b2e8-e409-4dc7-ba11-32c1c345a328",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "keyboard",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -71,9 +60,9 @@
                     "name": "",
                     "id": "41cd6673-1dbd-462b-98a8-7691a1938786",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "controller",
+                    "groups": "gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -139,8 +128,19 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "controller",
+                    "groups": "gamepad",
                     "action": "Movment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6214be8-e46d-436b-96a3-1c395bc830db",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "gamepad",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -154,23 +154,18 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]
         },
         {
-            "name": "controller",
-            "bindingGroup": "controller",
+            "name": "gamepad",
+            "bindingGroup": "gamepad",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

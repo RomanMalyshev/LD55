@@ -276,9 +276,9 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3307739560509224541}
-        m_TargetAssemblyTypeName: PlayerControll, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnAttack
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -286,15 +286,15 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_ActionId: bfd0e896-f19d-4915-b823-236d9cdf2bd2
     m_ActionName: 'Player/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3307739560509224541}
-        m_TargetAssemblyTypeName: PlayerControll, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnInteract
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -302,7 +302,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_ActionId: a743899c-9134-4b51-9f97-5cd9c48b3cfd
     m_ActionName: 'Player/Interact[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0

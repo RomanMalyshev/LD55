@@ -21,16 +21,14 @@ public class PlayerController : MonoBehaviour {
 
   [PublicAPI]
   public void OnAttack(InputAction.CallbackContext context) {
-    //Debug.Log("Attack");
-    var isAttack = context.ReadValue<bool>();
-    HandLeft.rotation = Quaternion.Euler(isAttack ? 260 : 335, 0, 0);
+    Debug.Log("Attack");
+    HandLeft.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
   }
 
   [PublicAPI]
   public void OnInteract(InputAction.CallbackContext context) {
-    // Debug.Log("Interact");
-    var isInteract = context.ReadValue<bool>();
-    RightHand.rotation = Quaternion.Euler(isInteract ? 260 : 335, 0, 0);
+    Debug.Log("Interact");
+    RightHand.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
   }
 
   private void Update() {
