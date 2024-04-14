@@ -49,6 +49,7 @@ public class TerrainBuilder : MonoBehaviour {
   private void CreateWall(Cell cell) {
     var wall = Spawn(cell.X, cell.Y, R.TerrainPrefs.Walls.Get(cell.TileEnvironment));
     var roof = Spawn(cell.X, cell.Y, R.TerrainPrefs.Roofs.Get(cell.TileEnvironment));
+    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground);
 
     if (!wall.TryGetComponent<MeshRenderer>(out _)) {
       wall.name = $"W_{wall.name}_{cell.X}_{cell.Y}";
