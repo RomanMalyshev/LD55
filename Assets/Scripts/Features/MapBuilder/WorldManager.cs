@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WorldManager : MonoBehaviour {
   [SerializeField] private TerrainBuilder TerrainBuilder;
   [SerializeField] private PlayersManager PlayersManager;
+  [SerializeField] private InteractionController InteractionController;
 
   [SerializeField] private Transform terrainContainer;
   [SerializeField] private Transform environmentContainer;
@@ -27,9 +29,12 @@ public class WorldManager : MonoBehaviour {
   public void Init() {
     TerrainBuilder.Init(this);
     PlayersManager.Init(positions.ToArray());
+    InteractionController.Init(PlayersManager);
   }
 
 
-  public void Upd() { }
+  public void Upd() {
+    InteractionController.Upd();
+  }
   public void Dispose() { }
 }

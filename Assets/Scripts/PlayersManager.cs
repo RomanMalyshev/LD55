@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class PlayersManager : MonoBehaviour {
   private int _realPlayerInGame = -1;
   private readonly List<PlayerController> _players = new();
   private readonly Dictionary<InputActionReference, bool> _isSplitPlayerJoin = new();
+
+  public Action<PlayerController> OnPlayerCreated;
 
   public void Init(Transform[] positions) {
     PlayersPosition = positions;
@@ -64,6 +67,7 @@ public class PlayersManager : MonoBehaviour {
         PlayersPosition[playerInput.playerIndex].position.z);
     _players.Add(playerController);
     _realPlayerInGame++;
+    OnPlayerCreated?.Invoke(playerController);
   }
 
   public void Reset() {

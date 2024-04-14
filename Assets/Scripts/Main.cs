@@ -36,6 +36,7 @@ public class Main : MonoBehaviour {
   }
 
   private void Update() {
+    worldManager.Upd();
     //camera.transform.localPosition = new Vector3(35, 35, 0);
     // camera.orthographicSize = 15f;
   }
