@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Ky;
 
 public class InteractionController : MonoBehaviour {
   private readonly List<IInteractable> _interactable = new();
@@ -17,11 +18,12 @@ public class InteractionController : MonoBehaviour {
 
   public void registerPlayer(PlayerController controller) {
     _players.Add(controller);
-    InteractableItemInfo.Add(controller, Instantiate(InteractableItemInfoPrototype));
+    InteractableItemInfo.Add(controller, Instantiate(InteractableItemInfoPrototype, WorldUIContainer));
     InteractableItem.Add(controller, null);
   }
 
   public void Init(PlayersManager manager) {
+    Ic = this;
     manager.OnPlayerCreated += registerPlayer;
   }
 

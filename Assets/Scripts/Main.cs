@@ -16,7 +16,7 @@ public class Main : MonoBehaviour {
 
   private GameObject[] playerUnits = new GameObject[4];
 
-  private void Start() {
+  private void Awake() {
 
     worldManager.Init();
     //initMap("azaza");

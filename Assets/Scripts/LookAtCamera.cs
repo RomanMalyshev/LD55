@@ -10,6 +10,7 @@ public class LookAtCamera : MonoBehaviour {
   }
 
   private void Update() {
-    transform.LookAt(_cam);
+    Vector3 direction = -_cam.transform.forward;
+    transform.rotation = Quaternion.LookRotation(direction, Vector3.down);
   }
 }
