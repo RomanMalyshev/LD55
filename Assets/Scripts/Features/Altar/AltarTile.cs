@@ -40,6 +40,6 @@ public class AltarTile : InteractableObject {
   }
   public void RemoveItem() {
     var item = Inventory.RemoveItem();
-    Destroy(item.gameObject);
+    if (item != null) Destroy(item.gameObject);
   }
 }
