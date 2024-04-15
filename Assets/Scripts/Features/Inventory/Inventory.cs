@@ -25,11 +25,12 @@ public class Inventory : MonoBehaviour {
   }
 
   public InteractableObject RemoveItem() {
+    var item = contain;
     if (rendered) {
       ItemMF.mesh = null;
     }
     contain = null;
-    return contain;
+    return item;
   }
 
   public bool TransferItem(Inventory inventory) {

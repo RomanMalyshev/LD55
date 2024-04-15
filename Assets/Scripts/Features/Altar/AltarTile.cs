@@ -20,14 +20,10 @@ public class AltarTile : InteractableObject {
 
   public override void Interact(PlayerController playerController, InteractionType type) {
     if (type != InteractionType.Use) return;
-    Debug.Log("sda");
-    playerController.Inventory.TransferItem(Inventory);
+    if (Inventory.contain == null) playerController.Inventory.TransferItem(Inventory);
+    else Inventory.TransferItem(playerController.Inventory);
   }
 
-
-  public void SetItem(PlayerController playerController) {
-    Inventory.TransferItem(playerController.Inventory);
-  }
 
   public bool IsItemRequested() {
     if (Inventory.contain is BodyPartItem p)

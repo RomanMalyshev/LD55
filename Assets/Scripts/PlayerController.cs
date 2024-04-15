@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
-  
+
   [SerializeField] private Rigidbody Rigidbody;
   [SerializeField] private Transform HandLeft;
   [SerializeField] private Transform RightHand;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 
   [SerializeField] public Inventory Inventory;
   [SerializeField] public AttackZone AttackZone;
-  
+
   public Action<PlayerController> OnPlayerAttack;
   public Action<PlayerController> OnPlayerInteraction;
 
@@ -36,17 +36,27 @@ public class PlayerController : MonoBehaviour {
   [PublicAPI]
   public void OnAttack(InputAction.CallbackContext context) {
     Debug.Log(context.performed ? "Start Attack" : "End Attack");
+    if (Inventory.contain != null) {
+      var item = Inventory.RemoveItem();
+      item.SetInteractable(true);
+      item.gameObject.SetActive(true);
+      item.transform.position = transform.position;
+      return;
+    }
+
     OnPlayerAttack?.Invoke(this);
     HandLeft.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
 
     if (context.performed && AttackZone._targetMob != null)
       AttackZone._targetMob.Hit();
+
+
   }
 
   [PublicAPI]
   public void OnInteract(InputAction.CallbackContext context) {
     Debug.Log(context.performed ? "Start Interact" : "End Interact");
-  
+
     RightHand.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
 
     if (context.performed) {
