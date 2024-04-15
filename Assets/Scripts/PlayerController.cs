@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
-
+  
   [SerializeField] private Rigidbody Rigidbody;
   [SerializeField] private Transform HandLeft;
   [SerializeField] private Transform RightHand;
@@ -13,15 +13,15 @@ public class PlayerController : MonoBehaviour {
 
   [SerializeField] public Inventory Inventory;
   [SerializeField] public AttackZone AttackZone;
-
-
-
+  
   public Action<PlayerController> OnPlayerAttack;
   public Action<PlayerController> OnPlayerInteraction;
 
   private Vector2 _movementInput = Vector2.zero;
 
-  private void Start() { }
+  private void Start() {
+    Inventory.RemoveItem();
+  }
 
   [PublicAPI]
   public void PickUpItem(InteractableObject item) {
@@ -46,8 +46,12 @@ public class PlayerController : MonoBehaviour {
   [PublicAPI]
   public void OnInteract(InputAction.CallbackContext context) {
     Debug.Log(context.performed ? "Start Interact" : "End Interact");
-    OnPlayerInteraction?.Invoke(this);
+  
     RightHand.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
+
+    if (context.performed) {
+      OnPlayerInteraction?.Invoke(this);
+    }
   }
 
   private void FixedUpdate() {
@@ -65,5 +69,4 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody.MoveRotation(targetRotation);
   }
-
 }

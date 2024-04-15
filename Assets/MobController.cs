@@ -27,7 +27,7 @@ public class MobController : MonoBehaviour {
   }
 
   public void Death() {
-    var item = Instantiate(DropItemOriginal,transform.position,transform.rotation);
+    var item = Instantiate(DropItemOriginal,transform.position,Quaternion.Euler(90,0,0));
     item.Init(BodyPart.Head,Type);
        
     Animator.SetBool("isDead", true);

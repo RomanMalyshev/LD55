@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Ky;
 
@@ -20,8 +22,14 @@ public class InteractionController : MonoBehaviour {
 
   public void registerPlayer(PlayerController controller) {
     _players.Add(controller);
+    controller.OnPlayerInteraction += OnPlayerInteraction;
     InteractableItemInfo.Add(controller, Instantiate(InteractableItemInfoPrototype, WorldUIContainer));
     InteractableItem.Add(controller, null);
+  }
+  private void OnPlayerInteraction(PlayerController playerController) {
+    if (InteractableItem.ContainsKey(playerController)) {
+      InteractableItem[playerController].Interact(playerController,InteractionType.Use);
+    }
   }
 
   public void Init(PlayersManager manager) {
