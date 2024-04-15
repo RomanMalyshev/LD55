@@ -24,7 +24,7 @@ public class AltarController : MonoBehaviour {
     foreach (var tile in tiles) {
       var part = ((BodyPart[]) Enum.GetValues(typeof(BodyPart))).Random(r);
       var monster = ((MonsterType[]) Enum.GetValues(typeof(MonsterType))).Random(r);
-      if (r.Next(0, 2) == 1) { tile.SetTileRequest(part, monster); } else tile.SetUnrequested(null, null);
+      if (r.Next(0, 2) == 1) { tile.SetTileRequest(part, monster); } else tile.SetUnrequested();
     }
 
     effector.SetTrigger(Requested);
