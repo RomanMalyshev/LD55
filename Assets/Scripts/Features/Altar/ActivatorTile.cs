@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using static Ky;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class ActivatorTile : InteractableObject {
 
   [SerializeField] private AltarController altar;
 
+  public void Awake() {
+    SetInteractable(true);
+  }
   public void SetTileRequest(BodyPart part, MonsterType monster) { }
 
   public override void Interact(PlayerController playerController, InteractionType type) {

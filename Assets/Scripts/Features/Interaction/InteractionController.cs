@@ -27,8 +27,8 @@ public class InteractionController : MonoBehaviour {
     InteractableItem.Add(controller, null);
   }
   private void OnPlayerInteraction(PlayerController playerController) {
-    if (InteractableItem.ContainsKey(playerController)) {
-      InteractableItem[playerController].Interact(playerController, InteractionType.Use);
+    if (InteractableItem.TryGetValue(playerController, out var value)) {
+      value?.Interact(playerController, InteractionType.Use);
     }
   }
 
