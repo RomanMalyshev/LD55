@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 7127069158717692408}
   - component: {fileID: 2700966955922507759}
   - component: {fileID: 4670307041571005054}
+  - component: {fileID: -1226511878669908432}
   m_Layer: 0
   m_Name: WTRDtr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2599363381725374253
 Transform:
@@ -107,3 +108,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18889853, y: 3.0479999, z: 1.016}
   m_Center: {x: -0.41355062, y: 1.5239999, z: -0.000000029802322}
+--- !u!114 &-1226511878669908432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947548865166372211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

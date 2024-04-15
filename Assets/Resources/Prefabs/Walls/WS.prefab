@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 318158943131216744}
   - component: {fileID: 3572038975154635030}
   - component: {fileID: 6737762349292958812}
+  - component: {fileID: 7704514106202377410}
   m_Layer: 0
   m_Name: WS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &803662209071513191
 Transform:
@@ -107,3 +108,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.016, y: 3.0480003, z: 1.016}
   m_Center: {x: 0.000000029802322, y: 1.5240002, z: -0.000000059604645}
+--- !u!114 &7704514106202377410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8814293662439048924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

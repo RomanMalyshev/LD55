@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using static Ky;
 
 public class ResourcesHelper : MonoBehaviour {
@@ -21,4 +22,8 @@ public class ResourcesHelper : MonoBehaviour {
   [SerializeField] public TerrainPrefs TerrainPrefs;
   [SerializeField] public MobPresets Mobs;
 
+  public void Init() {
+    R = this;
+    gameObject.SetActive(false);
+  }
 }

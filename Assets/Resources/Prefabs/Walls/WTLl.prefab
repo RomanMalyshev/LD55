@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 5569575624932754894}
   - component: {fileID: 8021144796951711358}
   - component: {fileID: 176683533449185241}
+  - component: {fileID: 7037751262798368196}
   m_Layer: 0
   m_Name: WTLl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2277178568401868144
 Transform:
@@ -107,3 +108,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.016, y: 3.0480003, z: 1.016}
   m_Center: {x: 0.0000002682209, y: 1.5240006, z: 0.00000020861626}
+--- !u!114 &7037751262798368196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723017094328826392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

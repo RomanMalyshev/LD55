@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float _rotateSpeed = 2.0f;
 
   [SerializeField] public Inventory Inventory;
+  [SerializeField] public AttackZone AttackZone;
+
+
 
   public Action<PlayerController> OnPlayerAttack;
   public Action<PlayerController> OnPlayerInteraction;
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour {
     Debug.Log(context.performed ? "Start Attack" : "End Attack");
     OnPlayerAttack?.Invoke(this);
     HandLeft.localRotation = Quaternion.Euler(context.performed ? 260 : 335, 0, 0);
+
+    if (context.performed && AttackZone._targetMob != null)
+      AttackZone._targetMob.Hit();
   }
 
   [PublicAPI]

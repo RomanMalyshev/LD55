@@ -10,16 +10,18 @@ public class TerrainBuilder : MonoBehaviour {
   private WorldManager _worldManager;
 
   private MapProvider Map => new(mapName);
-
-  public void Init(WorldManager worldManager) {
+  private ResourcesHelper _resourcesHelper;
+  public void Init(WorldManager worldManager, ResourcesHelper resourcesHelper) {
     _worldManager = worldManager;
-    R.TerrainPrefs.Walls.Init();
-    R.TerrainPrefs.Roofs.Init();
+    _resourcesHelper = resourcesHelper;
+    _resourcesHelper.TerrainPrefs.Walls.Init();
+    _resourcesHelper.TerrainPrefs.Roofs.Init();
     BuildMap();
   }
 
   private void BuildMap() {
     var map = Map;
+    _spawned.Clear();
     _spawned.Capacity = map.Size;
 
     foreach (var cell in map) {
@@ -50,9 +52,9 @@ public class TerrainBuilder : MonoBehaviour {
   }
 
   private void CreateWall(Cell cell) {
-    var wall = Spawn(cell.X, cell.Y, R.TerrainPrefs.Walls.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
-    var roof = Spawn(cell.X, cell.Y, R.TerrainPrefs.Roofs.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
-    Spawn(cell.X, cell.Y, R.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
+    var wall = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Walls.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    var roof = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Roofs.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
 
     if (!wall.TryGetComponent<MeshRenderer>(out _)) {
       wall.name = $"W_{wall.name}_{cell.X}_{cell.Y}";

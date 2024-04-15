@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using static Ky;
@@ -11,13 +12,14 @@ public class Main : MonoBehaviour {
   [SerializeField] private Transform unitContainer;
   [SerializeField] private Camera camera;
   [SerializeField] private WorldManager worldManager;
+  [SerializeField] private ResourcesHelper resourcesHelper;
 
   private Map? map = null;
 
   private GameObject[] playerUnits = new GameObject[4];
 
   private void Awake() {
-
+    resourcesHelper.Init();
     worldManager.Init();
     //initMap("azaza");
   }
