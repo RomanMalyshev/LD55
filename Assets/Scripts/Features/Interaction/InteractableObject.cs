@@ -1,7 +1,7 @@
 using UnityEngine;
 using static Ky;
 
-public class Item : MonoBehaviour, IInteractable {
+public abstract class InteractableObject : MonoBehaviour, IInteractable {
 
   [SerializeField] private bool Interactable;
   public Vector3 Pos => transform.position;
