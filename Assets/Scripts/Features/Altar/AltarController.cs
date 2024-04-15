@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = System.Random;
 
@@ -6,8 +7,10 @@ public class AltarController : MonoBehaviour {
   [SerializeField] public AltarTile[] tiles;
   [SerializeField] public Animator effector;
   public void Init() {
-    SetRequest();
+
+    StartCoroutine(afterStart());
   }
+
   public void SetRequest() {
     var r = new Random();
     foreach (var tile in tiles) {
@@ -17,5 +20,10 @@ public class AltarController : MonoBehaviour {
       tile.SetInteractable(true);
       effector.SetTrigger(0);
     }
+  }
+
+  public IEnumerator afterStart() {
+    yield return new WaitForSeconds(1f);
+    SetRequest();
   }
 }
