@@ -36,7 +36,7 @@ public class WorldManager : MonoBehaviour {
     PlayersManager.Init(positions.ToArray());
     InteractionController.Init(PlayersManager);
     PlayersManager.OnPlayerCreated += Follow;
-
+    PlayersManager.OnPlayerCreated += altarController.OnPlayerCreated;
     altarController.Init();
   }
   private void Follow(PlayerController obj) {

@@ -4,11 +4,14 @@ using UnityEngine;
 using Random = System.Random;
 
 public class AltarController : MonoBehaviour {
-  [SerializeField] public AltarTile[] tiles;
-  [SerializeField] public Animator effector;
-  public void Init() {
+  [SerializeField] private AltarTile[] tiles;
+  [SerializeField] private Animator effector;
 
-    StartCoroutine(afterStart());
+  private bool _active = false;
+  private static readonly int Requested = Animator.StringToHash("Requested");
+
+  public void Init() {
+    foreach (var tile in tiles) { tile.SetInteractable(true); }
   }
 
   public void SetRequest() {
@@ -17,13 +20,20 @@ public class AltarController : MonoBehaviour {
       var part = ((BodyPart[]) Enum.GetValues(typeof(BodyPart))).Random(r);
       var monster = ((MonsterType[]) Enum.GetValues(typeof(MonsterType))).Random(r);
       if (r.Next(0, 2) == 1) { tile.SetTileRequest(part, monster); }
-      tile.SetInteractable(true);
-      effector.SetTrigger(0);
     }
+
+    effector.SetTrigger(Requested);
   }
 
-  public IEnumerator afterStart() {
+  private IEnumerator afterStart() {
     yield return new WaitForSeconds(1f);
     SetRequest();
+  }
+
+  public void OnPlayerCreated(PlayerController obj) {
+    if (_active) return;
+    StartCoroutine(afterStart());
+    _active = true;
+
   }
 }
