@@ -11,6 +11,8 @@ public class BodyPartItem : InteractableObject {
   public void Init(BodyPart part, MonsterType type) {
     meshRenderer.material.mainTexture = Ky.R.Mobs.Textures[type];
     meshFilter.mesh = Ky.R.Mobs.Meshes[part];
+    _part = part;
+    _monster = type;
   }
 
   public override void Interact(PlayerController playerController, InteractionType type) {
