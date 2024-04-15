@@ -115,6 +115,7 @@ MonoBehaviour:
   skeleton: {fileID: 7703983429654806842, guid: ec9e18bd9c0a8164985e77e45206bd87,
     type: 3}
   TerrainPrefs: {fileID: 5981183969920651610}
+  Mobs: {fileID: 1414692972034300688}
 --- !u!1 &6821039492638610447
 GameObject:
   m_ObjectHideFlags: 0
