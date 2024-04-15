@@ -6,8 +6,8 @@ public class MobPresets : MonoBehaviour {
   [SerializeField] private KVContainer<MonsterType, Texture2D>[] _monsters;
   [SerializeField] private KVContainer<BodyPart, Mesh>[] _parts;
 
-  public Dictionary<MonsterType, Texture2D> Textures;
-  public Dictionary<BodyPart, Mesh> Meshes;
+  public Dictionary<MonsterType, Texture2D> Textures = new();
+  public Dictionary<BodyPart, Mesh> Meshes = new();
 
 
   public void Awake() {

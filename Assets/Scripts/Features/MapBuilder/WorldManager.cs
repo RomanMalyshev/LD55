@@ -8,6 +8,7 @@ public class WorldManager : MonoBehaviour {
   [SerializeField] private PlayersManager PlayersManager;
   [SerializeField] private InteractionController InteractionController;
   [SerializeField] private FollowTarget FollowCamera;
+  [SerializeField] private AltarController altarController;
 
   [SerializeField] private Transform terrainContainer;
   [SerializeField] private Transform environmentContainer;
@@ -35,6 +36,8 @@ public class WorldManager : MonoBehaviour {
     PlayersManager.Init(positions.ToArray());
     InteractionController.Init(PlayersManager);
     PlayersManager.OnPlayerCreated += Follow;
+
+    altarController.Init();
   }
   private void Follow(PlayerController obj) {
     FollowCamera.SetTarget(obj.transform);

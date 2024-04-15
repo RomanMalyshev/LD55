@@ -11,12 +11,19 @@ public class PlayerController : MonoBehaviour {
   [SerializeField] private float _playerSpeed = 2.0f;
   [SerializeField] private float _rotateSpeed = 2.0f;
 
+  [SerializeField] public Inventory Inventory;
+
   public Action<PlayerController> OnPlayerAttack;
   public Action<PlayerController> OnPlayerInteraction;
 
   private Vector2 _movementInput = Vector2.zero;
 
   private void Start() { }
+
+  [PublicAPI]
+  public void PickUpItem(InteractableObject item) {
+    Inventory.SetItem(item);
+  }
 
   [PublicAPI]
   public void OnMove(InputAction.CallbackContext context) {

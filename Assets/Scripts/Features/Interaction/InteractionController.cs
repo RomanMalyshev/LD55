@@ -4,6 +4,7 @@ using static Ky;
 
 public class InteractionController : MonoBehaviour {
   private readonly List<IInteractable> _interactable = new();
+  [SerializeField] private List<float> dList = new();
   private readonly List<PlayerController> _players = new();
   private readonly Dictionary<PlayerController, GameObject> InteractableItemInfo = new();
   private readonly Dictionary<PlayerController, IInteractable> InteractableItem = new();
@@ -14,6 +15,7 @@ public class InteractionController : MonoBehaviour {
   [SerializeField] private Transform WorldUIContainer;
   public void Add(IInteractable targt) {
     _interactable.Add(targt);
+    dList.Add(100);
   }
 
   public void registerPlayer(PlayerController controller) {
@@ -34,9 +36,11 @@ public class InteractionController : MonoBehaviour {
   private void SetInteractable(PlayerController player) {
     float max = float.MaxValue;
     IInteractable item = null;
-    foreach (var target in _interactable) {
-      if (!target.Interactabe) continue;
+    for (var i = 0; i < _interactable.Count; i++) {
+      var target = _interactable[i];
+      if (!target.Interactable) continue;
       var dist = Vector3.Distance(target.Pos, player.transform.position);
+      dList[i] = dist;
       if (dist < max) {
         max = dist;
         item = target;

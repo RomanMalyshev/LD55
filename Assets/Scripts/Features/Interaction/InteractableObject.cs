@@ -2,18 +2,15 @@ using UnityEngine;
 using static Ky;
 
 public abstract class InteractableObject : MonoBehaviour, IInteractable {
+  private bool _interactable = true;
 
-  [SerializeField] private bool Interactable;
   public Vector3 Pos => transform.position;
-  public bool Interactabe => Interactable;
+  public bool Interactable => _interactable;
 
   public void Start() {
     Ic.Add(this);
   }
 
-  public void Init(InteractionController controller) {
-    controller.Add(this);
-  }
-
-  public void Interact(PlayerController playerController, InteractionType type) { Debug.Log("Item Picked Up"); }
+  public virtual void Interact(PlayerController playerController, InteractionType type) { Debug.Log("Item Picked Up"); }
+  public virtual void SetInteractable(bool b) { _interactable = b; }
 }

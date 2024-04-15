@@ -84,6 +84,7 @@ MonoBehaviour:
   PlayersManager: {fileID: 1616094569158110080}
   InteractionController: {fileID: 2141643471742772203}
   FollowCamera: {fileID: 0}
+  altarController: {fileID: 2720567702521501218}
   terrainContainer: {fileID: 982417443676771130}
   environmentContainer: {fileID: 2240177992596601907}
   itemContainer: {fileID: 5913302678675781798}
@@ -509,31 +510,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8747188272290584015, guid: 2317d12b064bae943aa65af18a1f65e3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9133600914869338600}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2317d12b064bae943aa65af18a1f65e3, type: 3}
---- !u!1 &2930276044023094138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8747188272290584015, guid: 2317d12b064bae943aa65af18a1f65e3,
+--- !u!114 &2720567702521501218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8362984412894419095, guid: 2317d12b064bae943aa65af18a1f65e3,
     type: 3}
   m_PrefabInstance: {fileID: 5894701648378498741}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9133600914869338600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2930276044023094138}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08c5490a7066e444b2915ece8e6b0d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 03ce9b1d382372b4bad96fc39b34f5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interactable: 1
 --- !u!4 &8400882052904886207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2691958908378616074, guid: 2317d12b064bae943aa65af18a1f65e3,

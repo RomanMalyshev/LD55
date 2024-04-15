@@ -1,6 +1,6 @@
 public enum MonsterType {
-  Player,
+  //Player,
   Skeleton,
-  Zombie,
-  Demon,
+  /*Zombie,
+  Demon,*/
 }
