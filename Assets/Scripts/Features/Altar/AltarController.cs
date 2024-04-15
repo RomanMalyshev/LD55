@@ -5,7 +5,6 @@ using Random = System.Random;
 
 public class AltarController : MonoBehaviour {
   [SerializeField] private AltarTile[] tiles;
-  [SerializeField] private ActivatorTile activator;
   [SerializeField] private Animator effector;
 
   private bool _active = false;
