@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = System.Random;
 
 public class MobController : MonoBehaviour {
   [Header("Settings")]
@@ -28,7 +29,11 @@ public class MobController : MonoBehaviour {
 
   public void Death() {
     var item = Instantiate(DropItemOriginal,transform.position,Quaternion.Euler(90,0,0));
-    item.Init(BodyPart.Head,Type);
+    
+    Array values = Enum.GetValues(typeof(BodyPart));
+    Random random = new Random();
+    BodyPart randomPart = (BodyPart)values.GetValue(random.Next(values.Length));
+    item.Init(randomPart ,Type);
        
     Animator.SetBool("isDead", true);
     OnDeath?.Invoke(this);
