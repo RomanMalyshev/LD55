@@ -43,6 +43,9 @@ public class AltarController : MonoBehaviour {
     foreach (var tile in tiles) {
       b &= tile.IsItemRequested();
     }
-    if (b == true) SetRequest();
+    if (b == true) {
+      Debug.Log("Active");
+      SetRequest();
+    }
   }
 }
