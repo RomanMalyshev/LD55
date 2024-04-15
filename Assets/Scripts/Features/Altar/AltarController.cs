@@ -5,6 +5,7 @@ using Random = System.Random;
 
 public class AltarController : MonoBehaviour {
   [SerializeField] private AltarTile[] tiles;
+  [SerializeField] private ActivatorTile activator;
   [SerializeField] private Animator effector;
 
   private bool _active = false;
@@ -12,6 +13,11 @@ public class AltarController : MonoBehaviour {
 
   public void Init() {
     foreach (var tile in tiles) { tile.SetInteractable(true); }
+  }
+
+  private IEnumerator afterStart() {
+    yield return new WaitForSeconds(1f);
+    SetRequest();
   }
 
   public void SetRequest() {
@@ -25,15 +31,18 @@ public class AltarController : MonoBehaviour {
     effector.SetTrigger(Requested);
   }
 
-  private IEnumerator afterStart() {
-    yield return new WaitForSeconds(1f);
-    SetRequest();
-  }
-
   public void OnPlayerCreated(PlayerController obj) {
     if (_active) return;
     StartCoroutine(afterStart());
     _active = true;
+  }
 
+  public void ChekRequest() {
+    bool b = true;
+    foreach (var tile in tiles) {
+      b &= tile.IsItemRequested();
+    }
+    if (!b) return;
+    SetRequest();
   }
 }

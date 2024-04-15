@@ -28,7 +28,7 @@ public class InteractionController : MonoBehaviour {
   }
   private void OnPlayerInteraction(PlayerController playerController) {
     if (InteractableItem.ContainsKey(playerController)) {
-      InteractableItem[playerController].Interact(playerController,InteractionType.Use);
+      InteractableItem[playerController].Interact(playerController, InteractionType.Use);
     }
   }
 
