@@ -20,11 +20,11 @@ public class AltarController : MonoBehaviour {
   }
 
   public void SetRequest() {
-    var r = new Random();
+    var r = new Random(Time.frameCount);
     foreach (var tile in tiles) {
       var part = ((BodyPart[]) Enum.GetValues(typeof(BodyPart))).Random(r);
       var monster = ((MonsterType[]) Enum.GetValues(typeof(MonsterType))).Random(r);
-      if (r.Next(0, 2) == 1) { tile.SetTileRequest(part, monster); }
+      if (r.Next(0, 2) == 1) { tile.SetTileRequest(part, monster); } else tile.SetUnrequested(null, null);
     }
 
     effector.SetTrigger(Requested);

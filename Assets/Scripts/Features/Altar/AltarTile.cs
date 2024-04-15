@@ -10,12 +10,18 @@ public class AltarTile : InteractableObject {
 
   private BodyPart _part;
   private MonsterType _monster;
+  private bool _hasRequest = false;
+
+  public void SetUnrequested() {
+    _hasRequest = false;
+  }
 
   public void SetTileRequest(BodyPart part, MonsterType monster) {
     RequestItemMR.material.mainTexture = R.Mobs.Textures[monster];
     RequestItemMF.mesh = R.Mobs.Meshes[part];
     _monster = monster;
     _part = part;
+    _hasRequest = true;
   }
 
   public override void Interact(PlayerController playerController, InteractionType type) {
@@ -26,6 +32,7 @@ public class AltarTile : InteractableObject {
 
 
   public bool IsItemRequested() {
+    if (!_hasRequest) return true;
     if (Inventory.contain is BodyPartItem p)
       return p.Monster == _monster && p.Part == _part;
     return false;
