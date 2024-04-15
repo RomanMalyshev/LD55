@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7813047fd75c44b89d481657295d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dList: []
   InteractableItemInfoPrototype: {fileID: 6262277337798168537, guid: 62020bb89dd6dff48baf262a7e1cdbf9,
     type: 3}
   InteractionRadius: 0.75

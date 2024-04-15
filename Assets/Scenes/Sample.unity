@@ -388,6 +388,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!4 &502828138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7626377055388733650, guid: e3095b599501d004ca987f2217aa75fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7560435618792543307}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &609791977
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +425,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920669900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2999509182085832899, guid: a9732a264365a0e40b44a07d0aa7c71f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8332586394877375822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1298f95702b4b9aba77fe1471f1eb6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1095218987 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7212986018943257862, guid: e3095b599501d004ca987f2217aa75fb,
@@ -461,9 +479,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapContainer: {fileID: 609791978}
-  unitContainer: {fileID: 0}
+  unitContainer: {fileID: 502828138}
   camera: {fileID: 330585545}
   worldManager: {fileID: 1095218987}
+  resourcesHelper: {fileID: 920669900}
 --- !u!4 &1555866351
 Transform:
   m_ObjectHideFlags: 0
@@ -628,12 +647,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2999509182085832899, guid: a9732a264365a0e40b44a07d0aa7c71f,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1030982751986874686, guid: 4b2f2183b9921d743a5222ec781d8626,
-        type: 3}
     - target: {fileID: 4121768593628189862, guid: a9732a264365a0e40b44a07d0aa7c71f,
         type: 3}
       propertyPath: m_Name
