@@ -111,7 +111,7 @@ MonoBehaviour:
   spriteWallF: {fileID: 21300000, guid: 7189e9c6859cc834aac7ee9f84ebf29d, type: 3}
   spriteWallTFull: {fileID: 21300000, guid: e0cdfd02e030d254cb5b61ed355f3a9f, type: 3}
   spriteWallTShort: {fileID: 21300000, guid: 88e6c97c769b70e45a6cd921f63b641d, type: 3}
-  player: {fileID: 3406171113209020068, guid: fe857255d0a025747836af69b80579bb, type: 3}
+  player: {fileID: 1030982751986874686, guid: 4b2f2183b9921d743a5222ec781d8626, type: 3}
   skeleton: {fileID: 7703983429654806842, guid: ec9e18bd9c0a8164985e77e45206bd87,
     type: 3}
   TerrainPrefs: {fileID: 5981183969920651610}

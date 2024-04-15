@@ -3,6 +3,7 @@ using UnityEngine;
 using static Ky;
 using Object = UnityEngine.Object;
 
+/*
 public class Map {
   private class Pix {
     public static readonly List<Pix> all = new();
@@ -90,4 +91,4 @@ public class Map {
     }
     return best;
   }
-}
+}*/
