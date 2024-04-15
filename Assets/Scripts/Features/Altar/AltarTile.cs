@@ -33,7 +33,7 @@ public class AltarTile : InteractableObject {
 
 
   public bool IsItemRequested() {
-    if (!_hasRequest) return true;
+    if (_hasRequest == false) return true;
     if (Inventory.contain is BodyPartItem p)
       return p.Monster == _monster && p.Part == _part;
     return false;
