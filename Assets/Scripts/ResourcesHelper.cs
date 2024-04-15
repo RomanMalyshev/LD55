@@ -19,4 +19,6 @@ public class ResourcesHelper : MonoBehaviour {
   [SerializeField] public GameObject skeleton;
 
   [SerializeField] public TerrainPrefs TerrainPrefs;
+  [SerializeField] public MobPresets Mobs;
+
 }

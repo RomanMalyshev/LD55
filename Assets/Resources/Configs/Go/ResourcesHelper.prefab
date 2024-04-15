@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3670735811806856443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6648200236319418131}
+  - component: {fileID: 1414692972034300688}
+  m_Layer: 0
+  m_Name: MonsterDef
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6648200236319418131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670735811806856443}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.030914, y: -15.421933, z: 31.880342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5512996495647052929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414692972034300688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670735811806856443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206c3dfb9a39c2b489240bdfe89de312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monsters:
+  - Key: 0
+    Value: {fileID: 2800000, guid: fa608abd4ba5d1248bcd7ec0ac411ba2, type: 3}
+  _parts:
+  - Key: 0
+    Value: {fileID: 5507760748409398153, guid: 7d16624516cb9354b841c03e63c31dae, type: 3}
+  - Key: 1
+    Value: {fileID: -4960413014980463905, guid: 116b2d18e4ccfeb4bb5fb080e3918c09,
+      type: 3}
+  - Key: 2
+    Value: {fileID: 8796946361935539483, guid: 8aacef8bf1a5d504b8ce797dd860b7a4, type: 3}
+  - Key: 3
+    Value: {fileID: 5383383894333307406, guid: c8e3b4498c218c14f96ea5b1e69cf9c4, type: 3}
 --- !u!1 &4121768593628189862
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +90,7 @@ Transform:
   - {fileID: 6883148139247943752}
   - {fileID: 1249258881218279664}
   - {fileID: 5560272924889535727}
+  - {fileID: 6648200236319418131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2999509182085832899
