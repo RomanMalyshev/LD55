@@ -20,6 +20,8 @@ public class AltarController : MonoBehaviour {
   }
 
   public void SetRequest() {
+    foreach (var tile in tiles) { tile.RemoveItem(); }
+
     var r = new Random(Time.frameCount);
     foreach (var tile in tiles) {
       var part = ((BodyPart[]) Enum.GetValues(typeof(BodyPart))).Random(r);
@@ -41,7 +43,6 @@ public class AltarController : MonoBehaviour {
     foreach (var tile in tiles) {
       b &= tile.IsItemRequested();
     }
-    if (!b) return;
-    SetRequest();
+    if (b == true) SetRequest();
   }
 }

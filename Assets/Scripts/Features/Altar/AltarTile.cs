@@ -1,3 +1,4 @@
+using System;
 using static Ky;
 using UnityEngine;
 
@@ -36,5 +37,9 @@ public class AltarTile : InteractableObject {
     if (Inventory.contain is BodyPartItem p)
       return p.Monster == _monster && p.Part == _part;
     return false;
+  }
+  public void RemoveItem() {
+    var item = Inventory.RemoveItem();
+    Destroy(item.gameObject);
   }
 }
