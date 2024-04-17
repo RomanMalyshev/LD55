@@ -14,8 +14,7 @@ public class TerrainBuilder : MonoBehaviour {
   public void Init(WorldManager worldManager, ResourcesHelper resourcesHelper) {
     _worldManager = worldManager;
     _resourcesHelper = resourcesHelper;
-    _resourcesHelper.TerrainPrefs.Walls.Init();
-    _resourcesHelper.TerrainPrefs.Roofs.Init();
+    _resourcesHelper.TerrainPrefs.Init();
     BuildMap();
   }
 
@@ -52,8 +51,8 @@ public class TerrainBuilder : MonoBehaviour {
   }
 
   private void CreateWall(Cell cell) {
-    var wall = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Walls.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
-    var roof = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Roofs.Get(cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    var wall = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Get(_resourcesHelper.TerrainPrefs.TerrainWalls, cell.TileEnvironment), _worldManager.EnvironmentContainer);
+    var roof = Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Get(_resourcesHelper.TerrainPrefs.TerrainRoofs, cell.TileEnvironment), _worldManager.EnvironmentContainer);
     Spawn(cell.X, cell.Y, _resourcesHelper.TerrainPrefs.Ground, _worldManager.EnvironmentContainer);
 
     if (!wall.TryGetComponent<MeshRenderer>(out _)) {
